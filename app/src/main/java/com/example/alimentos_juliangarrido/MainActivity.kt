@@ -2,6 +2,7 @@ package com.example.alimentos_juliangarrido
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFicheroAlimento
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFirebase
 import com.example.alimentos_juliangarrido.modelo.conexiones.ConexionBD
@@ -30,9 +31,21 @@ class MainActivity : AppCompatActivity() {
             }
 
             daoAlimento.createConexion(conexion)
+            //pruebaModelo()
+            mostrar()
         }
 
-        pruebaModelo()
+
+
+
+    }
+
+    private fun mostrar(){
+        val alimentosList = daoAlimento.getAlimentos()
+
+        for (alimento in alimentosList) {
+            Log.d("ListaAlimentos", alimento.toString())
+        }
     }
 
 
