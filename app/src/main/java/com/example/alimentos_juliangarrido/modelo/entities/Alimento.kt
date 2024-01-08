@@ -1,10 +1,12 @@
 package com.example.alimentos_juliangarrido.modelo.entities
 
+import java.io.Serializable
+
 data class Alimento (val nombre: String,
                      val tipo:String = "simple",
                      var grHC: Double=0.0,
                      var grLip:Double=0.0,
-                     var grPro:Double=0.0){
+                     var grPro:Double=0.0): Serializable {
 
     var Kcal:Double=0.0
 

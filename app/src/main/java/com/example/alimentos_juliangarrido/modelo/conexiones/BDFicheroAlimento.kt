@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream
 class BDFicheroAlimento(private val context: Context): ConexionBD() {
 
 
-    val nombre="alimentos3.dat"
+    val nombre="alimentos.dat"
 
     fun escribir(lista:MutableList<Alimento>,nombreArchivo: String=nombre) {
         try {

@@ -3,6 +3,8 @@ package com.example.alimentos_juliangarrido
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.alimentos_juliangarrido.UI.MainFragment
+import com.example.alimentos_juliangarrido.databinding.ActivityMainBinding
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFicheroAlimento
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFirebase
 import com.example.alimentos_juliangarrido.modelo.conexiones.ConexionBD
@@ -13,13 +15,17 @@ import com.example.alimentos_juliangarrido.modelo.interfaces.InterfaceDaoAliment
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     lateinit var alimento: Alimento
     lateinit var daoAlimento:InterfaceDaoAlimento
     lateinit var conexion: ConexionBD
+    val fragment = MainFragment() // Crear una instancia del Fragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val tipoBD="fichero"
         val fdao = AbstractFactoryDaos.createFactory(tipoBD)
@@ -32,11 +38,12 @@ class MainActivity : AppCompatActivity() {
 
             daoAlimento.createConexion(conexion)
             //pruebaModelo()
-            mostrar()
+            //mostrar()
         }
 
-
-
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .commit()
 
     }
 
@@ -53,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         var huevo=Alimento("huevo",grHC=10.0)
         daoAlimento.addAlimento(huevo)
+
         var patatas=Alimento("patatas",grHC=10.0)
         daoAlimento.addAlimento(patatas)
         var pan=Alimento("pan",grHC=10.0)
@@ -70,6 +78,8 @@ class MainActivity : AppCompatActivity() {
         dieta.addIngrediente(Ingrediente(pan,100.0))
         //dieta.recalcula()
         daoAlimento.addAlimento(dieta)
+        Log.d("ListaAlimentos", dieta.toString())
+
 
     }
 }
