@@ -1,4 +1,4 @@
-package com.example.alimentos_juliangarrido.UI
+package com.example.alimentos_juliangarrido.UI.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.alimentos_juliangarrido.R
+import com.example.alimentos_juliangarrido.UI.fragments.viewpager.ViewPagerAdapater
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

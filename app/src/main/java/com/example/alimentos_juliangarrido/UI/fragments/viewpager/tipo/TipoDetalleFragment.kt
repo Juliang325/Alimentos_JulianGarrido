@@ -1,4 +1,4 @@
-package com.example.alimentos_juliangarrido.UI.fragments
+package com.example.alimentos_juliangarrido.UI.fragments.viewpager.tipo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,15 +8,11 @@ import android.view.ViewGroup
 import com.example.alimentos_juliangarrido.R
 
 
-class TiposFragment : Fragment() {
-
-
-    override fun onCreateView(
+class TipoDetalleFragment : Fragment() {
+     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_tipos, container, false)
+        return inflater.inflate(R.layout.fragment_tipo_detalle, container, false)
     }
-
-
 }

@@ -1,14 +1,13 @@
-package com.example.alimentos_juliangarrido.UI
+package com.example.alimentos_juliangarrido.UI.fragments.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.alimentos_juliangarrido.UI.fragments.HomeFragment
-import com.example.alimentos_juliangarrido.UI.fragments.TiposFragment
+import com.example.alimentos_juliangarrido.UI.fragments.viewpager.tipo.TiposFragment
 
 class ViewPagerAdapater(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
 
-    val list: List<Fragment> = listOf(HomeFragment(),TiposFragment())
+    val list: List<Fragment> = listOf(HomeFragment(), TiposFragment())
 
     override fun createFragment(position: Int): Fragment {
         return list.get(position)

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.alimentos_juliangarrido.UI.fragments.viewpager.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/tiposFragment"
+        android:name="com.example.alimentos_juliangarrido.UI.fragments.viewpager.tipo.TiposFragment"
+        android:label="TiposFragment" >
+        <action
+            android:id="@+id/action_tiposFragment_to_tipoDetalleFragment"
+            app:destination="@id/tipoDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.alimentos_juliangarrido.UI.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/tipoDetalleFragment"
+        android:name="com.example.alimentos_juliangarrido.UI.fragments.viewpager.tipo.TipoDetalleFragment"
+        android:label="fragment_tipo_detalle"
+        tools:layout="@layout/fragment_tipo_detalle" >
+        <action
+            android:id="@+id/action_tipoDetalleFragment_to_tiposFragment"
+            app:destination="@id/tiposFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.example.alimentos_juliangarrido.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>

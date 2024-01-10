@@ -1,4 +1,4 @@
-package com.example.alimentos_juliangarrido.UI.fragments
+package com.example.alimentos_juliangarrido.UI.fragments.viewpager
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.alimentos_juliangarrido.R
 import com.example.alimentos_juliangarrido.UI.adapter.AlimentoAdapter
 import com.example.alimentos_juliangarrido.databinding.FragmentHomeBinding
 import com.example.alimentos_juliangarrido.modelo.entities.Alimento

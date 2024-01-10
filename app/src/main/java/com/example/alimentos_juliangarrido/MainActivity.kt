@@ -3,7 +3,7 @@ package com.example.alimentos_juliangarrido
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.alimentos_juliangarrido.UI.MainFragment
+import com.example.alimentos_juliangarrido.UI.fragments.MainFragment
 import com.example.alimentos_juliangarrido.databinding.ActivityMainBinding
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFicheroAlimento
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFirebase
@@ -14,6 +14,7 @@ import com.example.alimentos_juliangarrido.modelo.factoria.AbstractFactoryDaos
 import com.example.alimentos_juliangarrido.modelo.interfaces.InterfaceDaoAlimento
 
 class MainActivity : AppCompatActivity() {
+    
 
     private lateinit var binding: ActivityMainBinding
     lateinit var alimento: Alimento
