@@ -10,4 +10,6 @@
 
     <color name="background_app">#A371E1</color>
     <color name="boton_personalizado">#430097</color>
+    <color name="btnAdd">#E46FFF</color>
+    <color name="backgroundDialog">#72008C</color>
 </resources>

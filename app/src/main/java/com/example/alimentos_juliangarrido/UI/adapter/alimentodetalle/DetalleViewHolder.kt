@@ -10,9 +10,10 @@ class DetalleViewHolder(view: View): ViewHolder(view) {
 
     val binding = ItemDetalleBinding.bind(view)
 
-    fun render(alimento: Alimento){
+    fun render(alimento: Alimento,  onClickDelete: (Int) -> Unit){
         binding.tvNombre.text = alimento.nombre
         binding.tvKcal.text = alimento.Kcal.toString()
         binding.tvIngredientes.text = alimento.ingredientes.joinToString { it?.alimento?.nombre ?: "" }
+        binding.cardView.setOnClickListener { onClickDelete(adapterPosition) }
     }
 }
