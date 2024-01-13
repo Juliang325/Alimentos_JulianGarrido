@@ -1,59 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="60dp">
+    android:layout_height="match_parent">
 
-    <TextView
+    <!-- Contenedor para el fragmento principal -->
+    <FrameLayout
+        android:id="@+id/container_Tipo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </FrameLayout>
+
+    <!-- BottomNavigationView -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿Desea modificar alguna lista?"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="70dp"/>
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu" />
 
-    <Button
-        android:id="@+id/btnAlimento"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Alimento"
-        android:backgroundTint="@color/boton_personalizado"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:layout_marginBottom="20dp"
-        />
-
-    <Button
-        android:id="@+id/btnReceta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Receta"
-        android:backgroundTint="@color/boton_personalizado"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:layout_marginBottom="20dp"/>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menú"
-        android:backgroundTint="@color/boton_personalizado"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:layout_marginBottom="20dp"/>
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dieta"
-        android:backgroundTint="@color/boton_personalizado"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp"/>
-</androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>

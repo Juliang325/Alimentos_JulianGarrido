@@ -1,4 +1,4 @@
-package com.example.alimentos_juliangarrido.UI.adapter
+package com.example.alimentos_juliangarrido.UI.adapter.alimento
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder

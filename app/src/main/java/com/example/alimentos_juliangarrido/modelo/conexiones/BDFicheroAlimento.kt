@@ -6,7 +6,7 @@ import java.io.IOException
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
-class BDFicheroAlimento(private val context: Context): ConexionBD() {
+class BDFicheroAlimento(private val context: Context){
 
 
     val nombre="alimentos.dat"
@@ -40,7 +40,7 @@ class BDFicheroAlimento(private val context: Context): ConexionBD() {
 
 
 
-    override fun borrarArchivos() {
+    fun borrarArchivos() {
         val archivo = context.getFileStreamPath(nombre)
         if (archivo.exists()) {
             archivo.delete()

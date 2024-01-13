@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.alimentos_juliangarrido.UI.adapter.AlimentoAdapter
+import com.example.alimentos_juliangarrido.UI.adapter.alimento.AlimentoAdapter
 import com.example.alimentos_juliangarrido.databinding.FragmentHomeBinding
 import com.example.alimentos_juliangarrido.modelo.entities.Alimento
 import com.example.alimentos_juliangarrido.modelo.provider.AlimentoProvider
@@ -17,10 +17,10 @@ class HomeFragment : Fragment() {
     private var _binding:FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val librosMutableList:MutableList<Alimento> = AlimentoProvider.alimentos.toMutableList()
-    private lateinit var adapterAlimento:AlimentoAdapter
-    private lateinit var adapterReceta:AlimentoAdapter
-    private lateinit var adapterMenu:AlimentoAdapter
-    private lateinit var adapterDieta:AlimentoAdapter
+    private lateinit var adapterAlimento: AlimentoAdapter
+    private lateinit var adapterReceta: AlimentoAdapter
+    private lateinit var adapterMenu: AlimentoAdapter
+    private lateinit var adapterDieta: AlimentoAdapter
 
 
 
@@ -62,10 +62,6 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun onClickDelete(position: Int) {
-        librosMutableList.removeAt(position)
-        adapterDieta.notifyItemRemoved(position)
-    }
 
 
 

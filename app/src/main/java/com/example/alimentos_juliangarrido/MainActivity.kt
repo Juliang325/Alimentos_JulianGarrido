@@ -6,20 +6,16 @@ import android.util.Log
 import com.example.alimentos_juliangarrido.UI.fragments.MainFragment
 import com.example.alimentos_juliangarrido.databinding.ActivityMainBinding
 import com.example.alimentos_juliangarrido.modelo.conexiones.BDFicheroAlimento
-import com.example.alimentos_juliangarrido.modelo.conexiones.BDFirebase
-import com.example.alimentos_juliangarrido.modelo.conexiones.ConexionBD
+import com.example.alimentos_juliangarrido.modelo.daos.alimento.DaoAlimentoBDSimu
+import com.example.alimentos_juliangarrido.modelo.daos.ingrediente.DaoIngredienteBDSimu
 import com.example.alimentos_juliangarrido.modelo.entities.Alimento
 import com.example.alimentos_juliangarrido.modelo.entities.Ingrediente
-import com.example.alimentos_juliangarrido.modelo.factoria.AbstractFactoryDaos
-import com.example.alimentos_juliangarrido.modelo.interfaces.InterfaceDaoAlimento
 
 class MainActivity : AppCompatActivity() {
     
 
     private lateinit var binding: ActivityMainBinding
     lateinit var alimento: Alimento
-    lateinit var daoAlimento:InterfaceDaoAlimento
-    lateinit var conexion: ConexionBD
     val fragment = MainFragment() // Crear una instancia del Fragment
 
 
@@ -28,58 +24,36 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val tipoBD="fichero"
-        val fdao = AbstractFactoryDaos.createFactory(tipoBD)
-        if (fdao != null) {
-            daoAlimento = fdao.createDaoAlimentos()
-            when (tipoBD){
-                "fichero"-> conexion = BDFicheroAlimento(this)
-                "firebase" -> conexion = BDFirebase(this)
-            }
+        val context = applicationContext
+        val daoAlimento = DaoAlimentoBDSimu(context)
+        val daoIngrediente = DaoAlimentoBDSimu(context)
 
-            daoAlimento.createConexion(conexion)
-            //pruebaModelo()
-            //mostrar()
+
+        // Crear un alimento
+//        val manzana = Alimento("Manzana", "Fruta", 12.4, 0.2, 0.3)
+//        daoAlimento.addAlimento(manzana)
+
+        // Leer todos los alimentos
+        val alimentos = daoAlimento.getAlimentos()
+
+        for (alimento in alimentos) {
+            Log.d("ListaAlimentos", alimento.toString())
         }
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
+            .replace(R.id.navHostFragment, fragment)
             .commit()
 
     }
 
     private fun mostrar(){
-        val alimentosList = daoAlimento.getAlimentos()
 
-        for (alimento in alimentosList) {
-            Log.d("ListaAlimentos", alimento.toString())
-        }
     }
 
 
     private fun pruebaModelo() {
 
-        var huevo=Alimento("huevo",grHC=10.0)
-        daoAlimento.addAlimento(huevo)
 
-        var patatas=Alimento("patatas",grHC=10.0)
-        daoAlimento.addAlimento(patatas)
-        var pan=Alimento("pan",grHC=10.0)
-        daoAlimento.addAlimento(pan)
-        var tortilla=Alimento("tortilla",tipo="receta")
-        tortilla.addIngrediente(Ingrediente(huevo,200.0))
-        tortilla.addIngrediente(Ingrediente(patatas,200.0))
-        daoAlimento.addAlimento(tortilla)
-        var menu=Alimento("menu",tipo="menu")
-        menu.addIngrediente(Ingrediente(tortilla,200.0))
-        menu.addIngrediente(Ingrediente(pan,10.0))
-        daoAlimento.addAlimento(menu)
-        var dieta=Alimento("dieta",tipo="dieta")
-        dieta.addIngrediente(Ingrediente(menu))
-        dieta.addIngrediente(Ingrediente(pan,100.0))
-        //dieta.recalcula()
-        daoAlimento.addAlimento(dieta)
-        Log.d("ListaAlimentos", dieta.toString())
 
 
     }
