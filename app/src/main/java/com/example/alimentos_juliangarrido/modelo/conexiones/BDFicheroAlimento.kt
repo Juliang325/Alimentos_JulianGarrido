@@ -7,10 +7,7 @@ import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
 class BDFicheroAlimento(private val context: Context){
-
-
     val nombre="alimentos.dat"
-
     fun escribir(lista:MutableList<Alimento>,nombreArchivo: String=nombre) {
         try {
             val fileOutputStream = context.openFileOutput(nombreArchivo, Context.MODE_PRIVATE)
@@ -37,15 +34,10 @@ class BDFicheroAlimento(private val context: Context){
         }
         return lista ?: mutableListOf()
     }
-
-
-
     fun borrarArchivos() {
         val archivo = context.getFileStreamPath(nombre)
         if (archivo.exists()) {
             archivo.delete()
         }
     }
-
-
 }
