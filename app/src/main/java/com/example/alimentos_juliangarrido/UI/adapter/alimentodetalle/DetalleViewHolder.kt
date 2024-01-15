@@ -12,7 +12,7 @@ class DetalleViewHolder(view: View): ViewHolder(view) {
 
     fun render(alimento: Alimento,  onClickDelete: (Int) -> Unit){
         binding.tvNombre.text = alimento.nombre
-        binding.tvKcal.text = alimento.Kcal.toString()
+        binding.tvKcal.text = alimento.Kcal.toString() + " kcal Total"
         binding.tvIngredientes.text = alimento.ingredientes.joinToString { it?.alimento?.nombre ?: "" }
         binding.cardView.setOnClickListener { onClickDelete(adapterPosition) }
     }
