@@ -31,7 +31,6 @@ class TiposFragment : Fragment() {
     private var _binding: FragmentTiposBinding? = null
     private val binding get() = _binding!!
     private lateinit var sharedViewModel: SharedViewModel
-    private lateinit var alimentoMutableList:MutableList<Alimento>
     private lateinit var adapterAlimento: DetalleAdapter
     private lateinit var adapterReceta: DetalleAdapter
     private lateinit var adapterMenu: DetalleAdapter
@@ -51,6 +50,7 @@ class TiposFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
 
         // Observar cambios en la lista de alimentos y actualizar las vistas cuando cambie
         sharedViewModel.alimentoMutableList.observe(viewLifecycleOwner) { alimentos ->
@@ -188,6 +188,7 @@ class TiposFragment : Fragment() {
 
             if (alimentosList != null) {
                 alimentosList.add(1, a)
+                sharedViewModel.daoAlimentos.addAlimento(a)
                 sharedViewModel.alimentoMutableList.postValue(alimentosList)
                 binding.rvTipo.adapter?.notifyItemInserted(1)
                 llmanager.scrollToPositionWithOffset(1, 20)

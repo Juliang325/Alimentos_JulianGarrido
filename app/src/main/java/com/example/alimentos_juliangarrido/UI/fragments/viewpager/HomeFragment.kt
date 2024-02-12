@@ -36,7 +36,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
 
         // Asignar la lista de alimentos al ViewModel solo si es nula
         if (sharedViewModel.alimentoMutableList.value == null) {
